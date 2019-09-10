@@ -164,7 +164,7 @@ public class SettingsFragment extends Fragment {
                 .build()
         );
 
-        settings.add(Setting.Builder(Setting.Type.HEADER)
+       /* settings.add(Setting.Builder(Setting.Type.HEADER)
                 .icon(R.drawable.ic_toolbar_language)
                 .title(getActivity().getResources().getString(R.string.pref_language_header))
                 .build()
@@ -175,7 +175,7 @@ public class SettingsFragment extends Fragment {
                 .subtitle(Preferences.get(getActivity()).isLocaleDefault() ?
                         getString(R.string.pref_options_default) : language.getName())
                 .build()
-        );
+        ); */
 
         settings.add(Setting.Builder(Setting.Type.HEADER)
                 .icon(R.drawable.ic_toolbar_others)

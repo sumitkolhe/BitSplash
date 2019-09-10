@@ -134,10 +134,6 @@ public class CreditsFragment extends DialogFragment {
         switch (type) {
             case Extras.TYPE_CONTRIBUTORS:
                 return getActivity().getResources().getString(R.string.about_contributors_title);
-            case Extras.TYPE_DASHBOARD_CONTRIBUTORS:
-                return getActivity().getResources().getString(R.string.about_dashboard_contributors);
-            case Extras.TYPE_DASHBOARD_TRANSLATOR:
-                return getActivity().getResources().getString(R.string.about_dashboard_translator);
             default:
                 return "";
         }
