@@ -1,0 +1,149 @@
+apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.sadiqrazasyed'
+
+/*
+ * Wallpaper Board
+ *
+ * Copyright (c) 2017 Dani Mahardhika
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+    }
+}
+
+android {
+    compileSdkVersion rootProject.ext.CompileSdk
+    buildToolsVersion rootProject.ext.BuildTools
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.MinSdk
+        targetSdkVersion rootProject.ext.TargetSdk
+        versionCode 174
+        versionName "1.7.0-b5-2"
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [onesignal_app_id: "key",
+                                onesignal_google_project_number: "key"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        return true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.1'
+    implementation 'com.github.danimahardhika.candybar-library:PreLollipopTransitions:3.2.0'
+
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.SupportLibrary"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.SupportLibrary"
+    implementation "com.android.support:cardview-v7:$rootProject.ext.SupportLibrary"
+    implementation "com.android.support:design:$rootProject.ext.SupportLibrary"
+    implementation "com.android.support:palette-v7:$rootProject.ext.SupportLibrary"
+
+    implementation 'com.bluelinelabs:logansquare:1.3.7'
+    annotationProcessor 'com.bluelinelabs:logansquare-compiler:1.3.7'
+    implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-SNAPSHOT'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    implementation group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.1'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'com.afollestad.material-dialogs:core:0.9.5.0'
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+    implementation 'com.google.android.apps.muzei:muzei-api:2.0'
+    implementation 'org.sufficientlysecure:html-textview:3.5'
+    implementation 'com.github.KeepSafe:TapTargetView:1.9.1'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.4.2'
+
+    implementation 'com.github.danimahardhika:cafebar:1.3.2'
+    implementation('com.github.danimahardhika.android-helpers:core:-SNAPSHOT') {
+        changing = true
+    }
+    implementation 'com.github.danimahardhika.android-helpers:animation:0.1.0'
+    implementation 'com.github.danimahardhika.android-helpers:license:0.1.0'
+    implementation 'com.github.danimahardhika.android-helpers:permission:0.1.0'
+
+    // OneSignal SDK
+    implementation 'com.onesignal:OneSignal:3.+@aar'
+    // Required for OneSignal
+    implementation 'com.google.android.gms:play-services-gcm:11.8.0'
+    implementation 'com.google.android.gms:play-services-analytics:11.8.0'
+
+    // App Updater
+    implementation 'com.github.javiersantos:AppUpdater:2.6.3'
+
+    // Google Ads
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+
+    // Material Dialogs With Additional Features
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:2.1'
+
+    // Ad Block Prevention
+    implementation 'com.cuneytayyildiz:adblockerdetector:1.0.0'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion rootProject.ext.SupportLibrary
+            }
+        }
+    }
+}
+

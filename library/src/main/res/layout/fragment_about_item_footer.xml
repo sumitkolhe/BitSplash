@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/card_background">
+
+    <TextView
+        android:id="@+id/about_dashboard_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_margin"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:layout_marginStart="@dimen/content_margin"
+        android:layout_marginRight="@dimen/content_margin"
+        android:layout_marginEnd="@dimen/content_margin"
+        android:drawablePadding="@dimen/content_margin"
+        android:gravity="center_vertical"
+        android:text="@string/about_dashboard"
+        android:textSize="20dp"
+        android:textColor="?android:attr/textColorPrimary"
+        fontPath="fonts/Font-Bold.ttf"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_padding"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:layout_marginStart="@dimen/content_margin"
+        android:layout_marginRight="@dimen/content_margin"
+        android:layout_marginEnd="@dimen/content_margin"
+        android:paddingLeft="@dimen/content_item_list_margin_start"
+        android:paddingStart="@dimen/content_item_list_margin_start"
+        android:text="@string/about_dashboard_dev"
+        android:textSize="@dimen/text_content"
+        android:letterSpacing="0.05"
+        android:textColor="?android:attr/textColorPrimary"
+        fontPath="fonts/Font-Medium.ttf"/>
+
+    <TextView
+        android:id="@+id/about_dashboard_licenses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="@dimen/content_item_list_padding_start"
+        android:paddingStart="@dimen/content_item_list_padding_start"
+        android:paddingEnd="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin"
+        android:gravity="center_vertical"
+        android:text="@string/about_open_source_licenses"
+        android:textSize="@dimen/text_content_title"
+        android:letterSpacing="0.1"
+        android:textColor="?android:attr/textColorPrimary"
+        android:background="?attr/selectableItemBackground"
+        android:theme="@style/RippleStyle"
+        fontPath="fonts/Font-Bold.ttf"/>
+</LinearLayout>

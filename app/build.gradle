@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.CompileSdk
+    buildToolsVersion rootProject.ext.BuildTools
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def appName = parent.name
+            def fileName = appName.replace(" ", "_")
+            outputFileName = "$fileName-v${variant.versionName}.apk"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+    defaultConfig {
+        applicationId "com.sumitkolhe.bitsplash"
+        minSdkVersion rootProject.ext.MinSdk
+        targetSdkVersion rootProject.ext.TargetSdk
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [manifestApplicationId: "${applicationId}",
+                                onesignal_app_id: "dffc478e-1abf-4ce7-ab32-90021d794910",
+                                onesignal_google_project_number: "REMOTE"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Library
+    implementation project(':library')
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.google.android.apps.muzei:muzei-api:+'
+}
