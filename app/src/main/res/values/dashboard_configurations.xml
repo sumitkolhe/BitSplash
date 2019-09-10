@@ -116,7 +116,7 @@
     <!-- ======================================================================================= -->
 
     <!-- Your App Version For OneSignal 'Tag' -->
-    <string name="app_version">v1.0</string>
+    <string name="app_version">v0.1</string>
 
     <!-- Your Admob App ID -->
     <string name="admob_app_id"></string>
