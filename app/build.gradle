@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.CompileSdk
-    buildToolsVersion rootProject.ext.BuildTools
 
     android.applicationVariants.all { variant ->
         variant.outputs.all { output ->
