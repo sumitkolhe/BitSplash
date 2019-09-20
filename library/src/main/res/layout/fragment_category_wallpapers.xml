@@ -40,7 +40,7 @@
                 android:textSize="@dimen/text_toolbar_title"
                 android:maxLines="2"
                 android:ellipsize="end"
-                fontPath="fonts/Font-Medium.ttf"/>
+                fontPath="fonts/splash.ttf"/>
 
             <TextView
                 android:id="@+id/count"
@@ -57,7 +57,7 @@
                 android:textSize="@dimen/text_content_subtitle"
                 android:maxLines="1"
                 android:ellipsize="end"
-                fontPath="fonts/Font-Regular.ttf"/>
+                fontPath="fonts/Font-Bold.ttf"/>
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -74,7 +74,7 @@
             android:paddingStart="@dimen/card_margin_left"
             android:paddingLeft="@dimen/card_margin_left"
             android:clipToPadding="false"
-            android:scrollbars="vertical"
+            android:scrollbars="none"
             android:scrollbarThumbVertical="?attr/colorAccent"
             android:scrollbarSize="4dp"
             android:background="?attr/main_background"/>
@@ -89,7 +89,7 @@
             android:textSize="@dimen/text_content_title"
             android:visibility="gone"
             android:textColor="?android:attr/textColorPrimary"
-            fontPath="fonts/Font-Medium.ttf" />
+            fontPath="fonts/splash.ttf" />
 
         <View
             android:id="@+id/shadow"

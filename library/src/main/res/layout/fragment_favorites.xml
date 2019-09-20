@@ -17,7 +17,7 @@
         android:paddingStart="@dimen/card_margin_left"
         android:paddingLeft="@dimen/card_margin_left"
         android:clipToPadding="false"
-        android:scrollbars="vertical"
+        android:scrollbars="none"
         android:scrollbarThumbVertical="?attr/colorAccent"
         android:scrollbarSize="4dp"
         android:layout_below="@+id/toolbar" />

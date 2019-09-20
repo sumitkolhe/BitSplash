@@ -27,14 +27,14 @@ public class License {
     private static final byte[] SALT = new byte[]{
             //Put generated random bytes here, separate with comma
             //Ex: 14, 23, 58, 85, ...
-
+            //83, 27, 11, 17, 73, 76, 85, 38, 78, 22, 81, 65, 76, 75, 41, 60, 77 ,79 ,82 ,74
     };
 
     /*
      * Your license key
      * If your app hasn't published at play store, publish it first as beta, get license key
      */
-    private static final String LICENSE_KEY = "YOUR LICENSE KEY";
+    private static final String LICENSE_KEY = "";
 
     /*
      * NOTE: Make sure your app name in project same as app name at play store listing
@@ -50,7 +50,7 @@ public class License {
      * Format: new InAppBilling("donation product id")
      */
     private static final InAppBilling[] DONATION_PRODUCTS = new InAppBilling[] {
-            new InAppBilling("your.product.id"),
+            new InAppBilling("bitsplashdonate"),
             new InAppBilling("your.product.id"),
             new InAppBilling("your.product.id"),
             new InAppBilling("your.product.id")

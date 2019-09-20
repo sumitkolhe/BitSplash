@@ -17,7 +17,7 @@ android {
         applicationId "com.sumitkolhe.bitsplash"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 1
+        versionCode 3
         versionName "0.1"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",

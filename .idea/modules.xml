@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BitSplash-BETA.iml" filepath="$PROJECT_DIR$/BitSplash-BETA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/BitSplash-BETA-app.iml" filepath="$PROJECT_DIR$/app/BitSplash-BETA-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/BitSplash-BETA-library.iml" filepath="$PROJECT_DIR$/library/BitSplash-BETA-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
