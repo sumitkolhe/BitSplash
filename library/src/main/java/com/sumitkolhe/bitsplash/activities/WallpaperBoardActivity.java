@@ -73,11 +73,7 @@ import com.sumitkolhe.bitsplash.utils.views.HeaderView;
 import com.github.javiersantos.appupdater.AppUpdater;
 import com.github.javiersantos.appupdater.enums.Display;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
-import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.github.javiersantos.materialstyleddialogs.enums.Style;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -143,16 +139,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 R.style.AppThemeDark : R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
-        //startHandler();
 
-        MobileAds.initialize(this, (getString(R.string.admob_app_id)));
-
-        // Prepare new ad
-        interstitial = new InterstitialAd(getApplicationContext());
-        // Ad unit ID
-        interstitial.setAdUnitId(getString(R.string.admob_interstitial_id));
-        // Load Ad
-        loadInterstitial();
 
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.start();
@@ -570,114 +557,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         mNavigationView.getMenu().getItem(mPosition).setChecked(true);
     }
 
-      private void startHandler()
-    {
-        Handler handler = new Handler();
-
-        handler.postDelayed(new Runnable(){
-            public void run() {
-                adblockcheck();
-            }}, 2000);
-    }
-
-    private void loadInterstitial()
-    {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice((getString(R.string.admob_testdevice_id)))
-                .build();
-        interstitial.loadAd(adRequest);
-    }
-
-    private void adblockcheck() {
-        checkAdBlocker();
-        BufferedReader in = null;
-        boolean result = true;
-
-        try
-        {
-            in = new BufferedReader(new InputStreamReader(
-                    new FileInputStream("/etc/hosts")));
-            String line;
-
-            while ((line = in.readLine()) != null)
-            {
-                if (line.contains("admob"))
-                {
-                    result = false;
-                    break;
-                }
-            }
-        } catch (UnknownHostException e) { }
-        catch (IOException e) {e.printStackTrace();}
-
-        if(result==false){
-            adBlockDialog();
-        }
-    }
-
-    public void checkAdBlocker()
-    {
-        // Asynchronous detection in a background thread
-        new AdBlockerDetector(this).detectAdBlockers(new Constants.AdBlockerCallback()
-        {
-            @Override
-            public void onResult(boolean adBlockerFound, Constants.Info info)
-            {
-                if(adBlockerFound)
-                {
-                    adBlockDialog();
-                }
-            }
-        });
-    }
-
-    public void adBlockDialog()
-    {
-        new MaterialStyledDialog.Builder(this)
-                .setTitle(R.string.dialog_title_adblock)
-                .setDescription(R.string.dialog_content_adblock)
-                //.setStyle(Style.HEADER_WITH_ICON)
-                .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderColor(R.color.colorPrimary)
-                .setPositiveText(R.string.dialog_btn_yes_adblock)
-                .withDialogAnimation(true)
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-                        homeIntent.addCategory( Intent.CATEGORY_HOME );
-                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(homeIntent);
-                        finish();
-                    }
-                })
-                .setNegativeText(R.string.dialog_btn_no_adblock)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-                        homeIntent.addCategory( Intent.CATEGORY_HOME );
-                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(homeIntent);
-                        finish();
-                    }
-                })
-                .setNeutralText(R.string.dialog_btn_neutral_adblock)
-                .onNeutral(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        String url = (getString(R.string.pro_app_url));
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(url));
-                        startActivity(i);
-                        finish();
-                    }
-                })
-                .withDivider(true)
-                //.autoDismiss(false)
-                .setCancelable(false)
-                .show();
-    }
 
     @Nullable
     private Fragment getFragment(int position) {
