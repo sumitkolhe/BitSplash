@@ -1,8 +1,8 @@
 package com.sumitkolhe.bitsplash.items;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.helpers.WallpaperHelper;

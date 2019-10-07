@@ -1,6 +1,6 @@
 package com.sumitkolhe.bitsplash.activities.configurations;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Author: Dani Mahardhika

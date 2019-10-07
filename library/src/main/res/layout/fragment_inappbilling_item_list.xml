@@ -18,7 +18,7 @@
     android:background="?attr/selectableItemBackground"
     app:theme="@style/ButtonStyle">
 
-    <android.support.v7.widget.AppCompatRadioButton
+    <androidx.appcompat.widget.AppCompatRadioButton
         android:id="@+id/radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

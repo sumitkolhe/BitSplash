@@ -2,8 +2,8 @@ package com.sumitkolhe.bitsplash.tasks;
 
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.support.annotation.Nullable;
-import android.support.v7.graphics.Palette;
+import androidx.annotation.Nullable;
+import androidx.palette.graphics.Palette;
 
 import com.sumitkolhe.bitsplash.items.ColorPalette;
 import com.danimahardhika.android.helpers.core.utils.LogUtil;

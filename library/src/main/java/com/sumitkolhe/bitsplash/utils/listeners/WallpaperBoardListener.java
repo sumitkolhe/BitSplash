@@ -1,7 +1,7 @@
 package com.sumitkolhe.bitsplash.utils.listeners;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /*
  * Wallpaper Board

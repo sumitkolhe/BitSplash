@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingPrefix"
@@ -21,4 +21,4 @@
         android:textColorHighlight="#FFFFFF"
         android:letterSpacing="0.1"
         fontPath="fonts/splash.ttf"/>
-</android.support.v7.widget.Toolbar>
+</androidx.appcompat.widget.Toolbar>

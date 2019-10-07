@@ -1,9 +1,9 @@
 package com.sumitkolhe.bitsplash.adapters;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.AppCompatCheckBox;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.widget.AppCompatCheckBox;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;

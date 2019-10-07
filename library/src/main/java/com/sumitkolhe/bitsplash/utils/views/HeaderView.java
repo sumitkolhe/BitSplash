@@ -2,7 +2,7 @@ package com.sumitkolhe.bitsplash.utils.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
 import com.sumitkolhe.bitsplash.board.R;

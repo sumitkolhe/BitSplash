@@ -1,7 +1,7 @@
 package com.sumitkolhe.bitsplash.items;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 
 import com.danimahardhika.android.helpers.core.utils.LogUtil;
 

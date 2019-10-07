@@ -1,6 +1,6 @@
 package com.sumitkolhe.bitsplash.items;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.sumitkolhe.bitsplash.databases.Database;
 import com.danimahardhika.android.helpers.core.utils.LogUtil;

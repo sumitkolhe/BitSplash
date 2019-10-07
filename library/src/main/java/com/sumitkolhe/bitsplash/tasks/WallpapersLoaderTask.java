@@ -3,8 +3,8 @@ package com.sumitkolhe.bitsplash.tasks;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.bluelinelabs.logansquare.LoganSquare;
