@@ -59,12 +59,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
 
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.1'
     implementation 'com.github.danimahardhika.candybar-library:PreLollipopTransitions:3.2.0'
 
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -99,10 +99,10 @@ dependencies {
     implementation 'com.github.danimahardhika.android-helpers:permission:0.1.0'
 
     // OneSignal SDK
-    implementation 'com.onesignal:OneSignal:3.+@aar'
+    implementation 'com.onesignal:OneSignal:3.11.4@aar'
     // Required for OneSignal
     implementation 'com.google.android.gms:play-services-gcm:11.8.0'
-    implementation 'com.google.android.gms:play-services-analytics:11.8.0'
+    implementation 'com.google.android.gms:play-services-analytics:17.0.0'
 
     // App Updater
     implementation 'com.github.javiersantos:AppUpdater:2.6.3'
