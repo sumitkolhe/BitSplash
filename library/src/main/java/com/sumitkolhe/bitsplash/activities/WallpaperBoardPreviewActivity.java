@@ -68,12 +68,6 @@ import com.sumitkolhe.bitsplash.utils.Popup;
 import com.sumitkolhe.bitsplash.utils.Tooltip;
 import com.sumitkolhe.bitsplash.utils.WallpaperDownloader;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
-import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.github.javiersantos.materialstyleddialogs.enums.Style;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.kogitune.activitytransition.ActivityTransition;
 import com.kogitune.activitytransition.ExitActivityTransition;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -91,23 +85,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/*
- * Wallpaper Board
- *
- * Copyright (c) 2017 Dani Mahardhika
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 public class WallpaperBoardPreviewActivity extends AppCompatActivity implements View.OnClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, SlidingUpPanelLayout.PanelSlideListener,
@@ -152,12 +130,9 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
 
     private boolean mIsBottomPanelDragged = false;
 
-    private InterstitialAd mInterstitialAd;
-
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
     private int totalCount;
-    private int countAds;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -168,23 +143,6 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         prefs = getPreferences(Context.MODE_PRIVATE);
         editor = prefs.edit();
         totalCount = prefs.getInt("counter", 0);
-        countAds = prefs.getInt("number", 0);
-
-        MobileAds.initialize(this, (getString(R.string.admob_app_id)));
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.admob_interstitial_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                countAds++;
-                editor.putInt("number", countAds);
-                editor.commit();
-                countAdsMethod();
-                requestNewInterstitial();
-            }
-        });
 
         ButterKnife.bind(this);
 
@@ -404,12 +362,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                 loadWallpaper(mWallpaper.getUrl());
             }
         } else if (id == R.id.menu_save) {
-             if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                requestNewInterstitial();
-            }
+             
             if (PermissionHelper.isStorageGranted(this)) {
                 WallpaperDownloader.prepare(this)
                         .wallpaper(mWallpaper)
@@ -452,7 +405,6 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                             totalCount++;
                             editor.putInt("counter", totalCount);
                             editor.commit();
-                            counterCounts();
                             RectF rectF = null;
                             if (Preferences.get(WallpaperBoardPreviewActivity.this).isCropWallpaper()) {
                                 if (mAttacher != null)
@@ -465,12 +417,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
                                     .crop(rectF)
                                     .start(AsyncTask.THREAD_POOL_EXECUTOR);
                         } else if (item.getType() == PopupItem.Type.HOMESCREEN_LOCKSCREEN) {
-                             if (mInterstitialAd.isLoaded()) {
-                                mInterstitialAd.show();
-                            } else {
-                                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                                requestNewInterstitial();
-                            }
+
                             RectF rectF = null;
                             if (Preferences.get(WallpaperBoardPreviewActivity.this).isCropWallpaper()) {
                                 if (mAttacher != null)
@@ -794,105 +741,6 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
         }, null);
     }
 
-    public void showDialog() {
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showDialogNow();
-            }
-        }, 1000);
-    }
-
-    private void showDialogNow()
-    {
-        new MaterialStyledDialog.Builder(this)
-                .setTitle(R.string.dialog_title)
-                .setDescription(R.string.dialog_content)
-                //.setStyle(Style.HEADER_WITH_ICON)
-                .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderColor(R.color.colorPrimary)
-                .setPositiveText(R.string.dialog_btn_yes)
-                .withDialogAnimation(true)
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        String url = (getString(R.string.pro_app_url));
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(url));
-                        startActivity(i);
-                    }
-                })
-                .setNegativeText(R.string.dialog_btn_no)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-
-                    }
-                })
-                .withDivider(true)
-                //.autoDismiss(false)
-                .setCancelable(false)
-                .show();
-    }
-
-    private void counterCounts()
-    {
-        //define a new Random class
-        Random r = new Random();
-
-        //minimum number to generate as random number
-        int minNumber = Integer.parseInt(getString(R.string.ad_min_count));
-
-        //maximum number to generate as random number
-        int maxNumber = Integer.parseInt(getString(R.string.ad_max_count));
-
-        //get the next random number within range
-        int randomNumber = r.nextInt((maxNumber-minNumber)+minNumber)+minNumber;
-
-        if (+totalCount>=(randomNumber)) {
-            //Resets the counter
-            totalCount = 0;
-            editor.putInt("counter", 0);
-            editor.commit();
-            //Shows ad
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-                requestNewInterstitial();
-            }
-        }
-    }
-
-    private void countAdsMethod()
-    {
-        //define a new Random class
-        Random r = new Random();
-
-        //minimum number to generate as random number
-        int minNumber = Integer.parseInt(getString(R.string.ad_closemin_count));
-
-        //maximum number to generate as random number
-        int maxNumber = Integer.parseInt(getString(R.string.ad_closemax_count));
-
-        //get the next random number within range
-        int randomNumber = r.nextInt((maxNumber-minNumber)+minNumber)+minNumber;
-
-        if (+countAds>=(randomNumber)) {
-            countAds = 0;
-            editor.putInt("number", 0);
-            editor.commit();
-            showDialog();
-        }
-    }
-
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice((getString(R.string.admob_testdevice_id)))
-                .build();
-        mInterstitialAd.loadAd(adRequest);
-    }
 
     private void onWallpaperLoaded() {
         mAttacher = new PhotoViewAttacher(mImageView);

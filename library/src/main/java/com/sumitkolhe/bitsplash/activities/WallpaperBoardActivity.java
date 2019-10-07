@@ -31,11 +31,7 @@ import android.webkit.URLUtil;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.cuneytayyildiz.adblockerdetector.AdBlockerDetector;
-import com.cuneytayyildiz.adblockerdetector.Constants;
 import com.danimahardhika.android.helpers.core.ColorHelper;
 import com.danimahardhika.android.helpers.core.DrawableHelper;
 import com.danimahardhika.android.helpers.core.SoftKeyboardHelper;
@@ -73,7 +69,6 @@ import com.sumitkolhe.bitsplash.utils.views.HeaderView;
 import com.github.javiersantos.appupdater.AppUpdater;
 import com.github.javiersantos.appupdater.enums.Display;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
-import com.google.android.gms.ads.InterstitialAd;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -130,8 +125,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
     private int mPosition, mLastPosition;
 
     private ActivityConfiguration mConfig;
-
-    private InterstitialAd interstitial;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
