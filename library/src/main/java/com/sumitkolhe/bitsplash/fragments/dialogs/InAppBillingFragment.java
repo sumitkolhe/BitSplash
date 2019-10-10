@@ -3,28 +3,29 @@ package com.sumitkolhe.bitsplash.fragments.dialogs;
 import android.app.Dialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.anjlab.android.iab.v3.SkuDetails;
+import com.danimahardhika.android.helpers.core.utils.LogUtil;
+import com.sumitkolhe.bitsplash.adapters.InAppBillingAdapter;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.board.R2;
-import com.sumitkolhe.bitsplash.adapters.InAppBillingAdapter;
 import com.sumitkolhe.bitsplash.helpers.TypefaceHelper;
 import com.sumitkolhe.bitsplash.items.InAppBilling;
 import com.sumitkolhe.bitsplash.utils.Extras;
 import com.sumitkolhe.bitsplash.utils.InAppBillingProcessor;
-import com.danimahardhika.android.helpers.core.utils.LogUtil;
 import com.sumitkolhe.bitsplash.utils.listeners.InAppBillingListener;
 
 import butterknife.BindView;
@@ -98,7 +99,7 @@ public class InAppBillingFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity());
         builder.customView(R.layout.fragment_inappbilling, false)
-                .typeface(TypefaceHelper.getMedium(getActivity()), TypefaceHelper.getRegular(getActivity()))
+                .typeface(TypefaceHelper.getBold(getActivity()), TypefaceHelper.getBold(getActivity()))
                 .title(R.string.navigation_view_donate)
                 .positiveText(R.string.donate)
                 .negativeText(R.string.close)

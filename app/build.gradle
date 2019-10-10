@@ -17,11 +17,11 @@ android {
         applicationId "com.sumitkolhe.bitsplash"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 3
+        versionCode 12
         versionName "0.1"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                                onesignal_app_id: "dffc478e-1abf-4ce7-ab32-90021d794910",
+                                onesignal_app_id: "1ec93118-eb02-4abf-8a82-039e4f803279",
                                 onesignal_google_project_number: "REMOTE"]
     }
 
