@@ -21,7 +21,7 @@ android {
         versionName "0.1"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                                onesignal_app_id: "1ec93118-eb02-4abf-8a82-039e4f803279",
+                                onesignal_app_id: "00d6631d-8b80-4c78-95c3-b37203b2cbc0",
                                 onesignal_google_project_number: "REMOTE"]
     }
 
