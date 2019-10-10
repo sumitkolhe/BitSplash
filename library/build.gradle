@@ -28,7 +28,7 @@ android {
         versionCode 174
         versionName "1.7.0-b5-2"
         vectorDrawables.useSupportLibrary = true
-        manifestPlaceholders = [onesignal_app_id: "key",
+        manifestPlaceholders = [onesignal_app_id: "1ec93118-eb02-4abf-8a82-039e4f803279",
                                 onesignal_google_project_number: "key"]
     }
 
