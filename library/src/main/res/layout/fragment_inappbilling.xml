@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/donate" >
+    android:background="@drawable/donate"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/listview"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:dividerHeight="2dp"
+        android:dividerHeight="0dp"
         android:divider="@android:color/transparent"
         android:listSelector="@android:color/transparent"
         />
@@ -24,4 +25,4 @@
         android:visibility="gone"
         style="?android:attr/progressBarStyle"/>
 
-</LinearLayout>
+</FrameLayout>
