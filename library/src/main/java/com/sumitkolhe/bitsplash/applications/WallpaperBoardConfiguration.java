@@ -10,11 +10,7 @@ import com.sumitkolhe.bitsplash.utils.JsonStructure;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/**
- * Author: Dani Mahardhika
- * Created on: 10/27/2017
- * https://github.com/danimahardhika
- */
+
 
 public class WallpaperBoardConfiguration {
 

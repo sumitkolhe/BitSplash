@@ -2,11 +2,6 @@ package com.sumitkolhe.bitsplash.activities.callbacks;
 
 import androidx.annotation.NonNull;
 
-/**
- * Author: Dani Mahardhika
- * Created on: 10/28/2017
- * https://github.com/danimahardhika
- */
 
 public interface MuzeiCallback {
 

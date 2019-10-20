@@ -27,7 +27,7 @@
 
     <!-- Toolbar -->
     <dimen name="toolbar_shadow">4dp</dimen>
-    <dimen name="default_toolbar_height">56dp</dimen>
+    <dimen name="default_toolbar_height">60dp</dimen>
 
     <!-- Dialog -->
     <dimen name="dialog_content_padding">24dp</dimen>

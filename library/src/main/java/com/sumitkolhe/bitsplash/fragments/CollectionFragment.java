@@ -48,23 +48,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/*
- * Wallpaper Board
- *
- * Copyright (c) 2017 Dani Mahardhika
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 public class CollectionFragment extends Fragment {
 
@@ -149,12 +132,12 @@ public class CollectionFragment extends Fragment {
 //change the order of tab elements here
     private void initViewPager() {
         List<Collection> collection = new ArrayList<>();
-        collection.add(new Collection(R.drawable.ic_collection_categories,
-                new CategoriesFragment(), Extras.TAG_CATEGORIES));
-        collection.add(new Collection(R.drawable.ic_collection_wallpapers,
-                new WallpapersFragment(), Extras.TAG_WALLPAPERS));
         collection.add(new Collection(R.drawable.ic_collection_latest,
                 new LatestFragment(), Extras.TAG_LATEST));
+        collection.add(new Collection(R.drawable.ic_collection_wallpapers,
+                new WallpapersFragment(), Extras.TAG_WALLPAPERS));
+        collection.add(new Collection(R.drawable.ic_collection_categories,
+                new CategoriesFragment(), Extras.TAG_CATEGORIES));
 
 
         mPager.setOffscreenPageLimit(2);

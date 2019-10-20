@@ -13,19 +13,21 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="0dp">
+        app:elevation="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_margin="4dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/default_toolbar_height"
-                android:background="?attr/colorPrimary"/>
+                android:background="?attr/colorPrimary"
+                />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab"
@@ -57,7 +59,7 @@
         <View
             android:id="@+id/shadow"
             android:layout_width="match_parent"
-            android:layout_height="6dp"
+            android:layout_height="10dp"
             android:background="@drawable/toolbar_shadow"/>
     </FrameLayout>
 
@@ -65,11 +67,11 @@
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/content_padding"
+        android:layout_margin="12dp"
         android:layout_gravity="top"
         android:theme="@style/RippleStyle"
         android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="12dp"
         app:cardUseCompatPadding="false"
         app:cardElevation="@dimen/card_elevation"
         app:cardBackgroundColor="?attr/search_bar">

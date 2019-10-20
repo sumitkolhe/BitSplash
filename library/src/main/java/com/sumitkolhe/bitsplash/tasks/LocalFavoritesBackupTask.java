@@ -24,11 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executor;
 
-/**
- * Author: Dani Mahardhika
- * Created on: 11/16/2017
- * https://github.com/danimahardhika
- */
+
 
 public class LocalFavoritesBackupTask extends AsyncTask<Void, Void, Boolean> {
 

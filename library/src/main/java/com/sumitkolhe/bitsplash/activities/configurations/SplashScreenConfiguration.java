@@ -11,11 +11,6 @@ import com.sumitkolhe.bitsplash.helpers.TypefaceHelper;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/**
- * Author: Dani Mahardhika
- * Created on: 10/28/2017
- * https://github.com/danimahardhika
- */
 
 public class SplashScreenConfiguration {
 
