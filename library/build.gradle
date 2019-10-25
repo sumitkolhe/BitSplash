@@ -106,6 +106,9 @@ dependencies {
 
     // App Updater
     implementation 'com.github.javiersantos:AppUpdater:2.6.3'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.1.0'
 }
 
 configurations.all {

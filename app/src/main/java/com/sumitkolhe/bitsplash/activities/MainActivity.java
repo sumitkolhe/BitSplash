@@ -3,6 +3,7 @@ package com.sumitkolhe.bitsplash.activities;
 import androidx.annotation.NonNull;
 
 import com.sumitkolhe.bitsplash.activities.configurations.ActivityConfiguration;
+import com.sumitkolhe.bitsplash.board.sample.R;
 import com.sumitkolhe.bitsplash.licenses.License;
 
 public class MainActivity extends WallpaperBoardActivity {
@@ -15,5 +16,6 @@ public class MainActivity extends WallpaperBoardActivity {
                 .setLicenseKey(License.getLicenseKey())
                 .setRandomString(License.getRandomString())
                 .setDonationProductsId(License.getDonationProductsId());
+
     }
 }

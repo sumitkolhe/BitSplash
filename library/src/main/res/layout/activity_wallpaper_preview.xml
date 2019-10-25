@@ -77,7 +77,8 @@
                     android:textSize="@dimen/text_content_title"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    fontPath="fonts/Font-Medium.ttf"/>
+                    fontPath="fonts/Font-Medium.ttf"
+                    />
 
                 <TextView
                     android:id="@+id/author"
@@ -86,7 +87,8 @@
                     android:textSize="@dimen/text_content"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    fontPath="fonts/Font-Regular.ttf"/>
+                    fontPath="fonts/Font-Regular.ttf"
+                    />
             </LinearLayout>
 
             <ImageView
