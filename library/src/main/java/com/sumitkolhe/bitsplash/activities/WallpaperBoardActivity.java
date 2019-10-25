@@ -201,7 +201,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
-        
+
 
 
 
