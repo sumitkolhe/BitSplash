@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto"
+    android:launchMode="singleTop"
     package="com.sumitkolhe.bitsplash.board.sample">
 
     <!-- If you are not using donation and premium request, you need to remove BILLING permission -->
@@ -25,9 +26,6 @@
         tools:replace="android:icon,android:supportsRtl"
         android:name="com.sumitkolhe.bitsplash.applications.WallpaperBoard"
         tools:ignore="GoogleAppIndexingWarning">
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3775668953654220~3607168401"/>
 
         <activity android:name="com.sumitkolhe.bitsplash.activities.SplashActivity"
             android:launchMode="singleTop"

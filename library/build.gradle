@@ -10,14 +10,17 @@ buildscript {
         jcenter()
         mavenCentral()
         maven { url 'https://maven.google.com' }
+        maven { url 'https://plugins.gradle.org/m2/'}
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 
     dependencies {
         classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
         classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
     }
 }
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
 android {
     compileSdkVersion rootProject.ext.CompileSdk
@@ -28,8 +31,10 @@ android {
         versionCode 174
         versionName "1.7.0-b5-2"
         vectorDrawables.useSupportLibrary = true
-        manifestPlaceholders = [onesignal_app_id: "00d6631d-8b80-4c78-95c3-b37203b2cbc09",
-                                onesignal_google_project_number: "REMOTE"]
+        manifestPlaceholders = [
+                onesignal_app_id: '10042624-eb71-4221-97e1-60220a5255de',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE']
     }
 
     buildTypes {
@@ -98,17 +103,10 @@ dependencies {
     implementation 'com.github.danimahardhika.android-helpers:license:0.1.0'
     implementation 'com.github.danimahardhika.android-helpers:permission:0.1.0'
 
-    // OneSignal SDK
-    implementation 'com.onesignal:OneSignal:3.11.4@aar'
-    // Required for OneSignal
-    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
-    implementation 'com.google.android.gms:play-services-analytics:17.0.0'
-
+    //One Signal Notifications
+    implementation 'com.onesignal:OneSignal:3.12.2'
     // App Updater
     implementation 'com.github.javiersantos:AppUpdater:2.6.3'
-
-    //Lottie
-    implementation 'com.airbnb.android:lottie:3.1.0'
 }
 
 configurations.all {

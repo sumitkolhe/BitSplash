@@ -20,9 +20,11 @@ android {
         versionCode 20
         versionName "0.1"
         vectorDrawables.useSupportLibrary = true
-        manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                                onesignal_app_id: "00d6631d-8b80-4c78-95c3-b37203b2cbc0",
-                                onesignal_google_project_number: "REMOTE"]
+        manifestPlaceholders = [
+                onesignal_app_id: '10042624-eb71-4221-97e1-60220a5255de',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE']
+
     }
 
     buildTypes {

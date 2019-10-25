@@ -39,6 +39,7 @@ import com.danimahardhika.android.helpers.core.ViewHelper;
 import com.danimahardhika.android.helpers.core.WindowHelper;
 import com.danimahardhika.android.helpers.license.LicenseHelper;
 import com.danimahardhika.android.helpers.permission.PermissionCode;
+import com.onesignal.OneSignal;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.activities.callbacks.ActivityCallback;
@@ -72,13 +73,7 @@ import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
-import com.onesignal.OSNotification;
-import com.onesignal.OSNotificationAction;
-import com.onesignal.OSNotificationOpenResult;
-import com.onesignal.OSPermissionSubscriptionState;
-import com.onesignal.OneSignal;
 
-import org.json.JSONObject;
 
 import java.io.File;
 
@@ -111,7 +106,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
 
-
+//APP UPDATER DIALOG
         AppUpdater appUpdater = new AppUpdater(this);
         appUpdater.start();
 
@@ -119,8 +114,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 .setTitleOnUpdateAvailable("Update available")
                 .setContentOnUpdateAvailable("A new update for BitSplash is available !")
                 .setDisplay(Display.DIALOG)
-                //.setDisplay(Display.NOTIFICATION)
-                //.setDisplay(Display.SNACKBAR)
+                .setDisplay(Display.NOTIFICATION)
                 .setIcon(R.drawable.ic_update)
                 .showAppUpdated(true)
                 .setUpdateFrom(UpdateFrom.JSON)
@@ -200,59 +194,19 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             finish();
         }
 
-         OneSignal.startInit(this)
-                .setNotificationReceivedHandler(new ExampleNotificationReceivedHandler())
-                .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
-                .unsubscribeWhenNotificationsAreDisabled(true)
+        ////////////////////////
+        //ONE SIGNAL IMPLEMENTATION
+
+        OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
+        
 
-        OneSignal.sendTag(getString(R.string.app_name), getString(R.string.app_version));
 
-        OSPermissionSubscriptionState status = OneSignal.getPermissionSubscriptionState();
-        status.getPermissionStatus().getEnabled();
 
-        status.getSubscriptionStatus().getSubscribed();
-        status.getSubscriptionStatus().getUserSubscriptionSetting();
-        status.getSubscriptionStatus().getUserId();
-        status.getSubscriptionStatus().getPushToken();
 
-        OneSignal.clearOneSignalNotifications();
 
-    }
-
-    class ExampleNotificationReceivedHandler implements OneSignal.NotificationReceivedHandler {
-        @Override
-        public void notificationReceived(OSNotification notification) {
-            JSONObject data = notification.payload.additionalData;
-            String customKey;
-
-            if (data != null) {
-                customKey = data.optString("customkey", null);
-                if (customKey != null)
-                    Log.i("OneSignalExample", "customkey set with value: " + customKey);
-            }
-        }
-    }
-
-    class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
-        // This fires when a notification is opened by tapping on it.
-        @Override
-        public void notificationOpened(OSNotificationOpenResult result) {
-            OSNotificationAction.ActionType actionType = result.action.type;
-            JSONObject data = result.notification.payload.additionalData;
-            String customKey;
-
-            if (data != null) {
-                customKey = data.optString("customkey", null);
-                if (customKey != null)
-                    Log.i("OneSignalExample", "customkey set with value: " + customKey);
-            }
-
-            if (actionType == OSNotificationAction.ActionType.ActionTaken)
-                Log.i("OneSignalExample", "Button pressed with id: " + result.action.actionID);
-        }
     }
 
     @Override
