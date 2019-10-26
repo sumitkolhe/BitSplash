@@ -113,7 +113,7 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @Override
+  /*  @Override
     public void onBackPressed() {
         if (mFragmentId == Extras.ID_WALLPAPER_SEARCH) {
             Fragment fragment = mFragManager.findFragmentByTag(Extras.TAG_WALLPAPER_SEARCH);
@@ -131,16 +131,16 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
         }
 
         super.onBackPressed();
-    }
+    }*/
 
     private void setFragment() {
         Fragment fragment = null;
         if (mFragmentId == Extras.ID_CATEGORY_WALLPAPERS) {
             fragment = CategoryWallpapersFragment.newInstance(mCategoryName, mCategoryCount);
-        } else if (mFragmentId == Extras.ID_WALLPAPER_SEARCH) {
+        }/* else if (mFragmentId == Extras.ID_WALLPAPER_SEARCH) {
             fragment = new WallpaperSearchFragment();
             mFragmentTag = Extras.TAG_WALLPAPER_SEARCH;
-        }
+        }*/
 
         if (fragment == null) {
             finish();

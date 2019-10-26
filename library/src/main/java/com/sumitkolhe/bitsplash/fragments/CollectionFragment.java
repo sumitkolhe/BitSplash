@@ -209,7 +209,7 @@ public class CollectionFragment extends Fragment {
             if (WallpaperBoardApplication.getConfig().getAppLogoColor() != -1) {
                 searchBarTitle.setTextColor(WallpaperBoardApplication.getConfig().getAppLogoColor());
             } else {
-                searchBarTitle.setTextColor(ColorHelper.setColorAlpha(color, 0.7f));
+                searchBarTitle.setTextColor(ColorHelper.setColorAlpha(color, 0.9f));
             }
         }
 

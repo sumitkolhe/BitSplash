@@ -111,14 +111,12 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
         appUpdater.start();
 
         new AppUpdater(this)
-                .setTitleOnUpdateAvailable("Update available")
-                .setContentOnUpdateAvailable("A new update for BitSplash is available !")
                 .setDisplay(Display.DIALOG)
-                .setDisplay(Display.NOTIFICATION)
-                .setIcon(R.drawable.ic_update)
                 .showAppUpdated(true)
                 .setUpdateFrom(UpdateFrom.JSON)
                 .setCancelable(false)
+                .setTitleOnUpdateAvailable("Update for BitSplash is available !")
+                .setButtonDismiss("Not Now")
                 .setButtonDoNotShowAgain(null)
                 .setUpdateJSON("https://raw.githubusercontent.com/sumitkolhe/BitSplash-Walls/master/update.json")
                 .start();
