@@ -61,12 +61,12 @@ public class WallpaperBoardConfiguration {
         return this;
     }
 
-    public WallpaperBoardConfiguration setLatestWallpapersDisplayMax(@IntRange(from = 5, to = 15) int count) {
+    public WallpaperBoardConfiguration setLatestWallpapersDisplayMax(@IntRange(from = 5, to = 50) int count) {
         int finalCount = count;
         if (finalCount < 5) {
             finalCount = 5;
-        } else if (finalCount > 15) {
-            finalCount = 15;
+        } else if (finalCount > 50) {
+            finalCount = 50;
         }
         mLatestWallpapersDisplayMax = finalCount;
         return this;

@@ -3,11 +3,11 @@
 
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#e0e0e0</color>
-    <color name="colorAccent">#D82A43</color>
+    <color name="colorAccent">#f50057</color>
 
     <color name="darkColorPrimary">#161616</color>
     <color name="darkColorPrimaryDark">#1B1B1E</color>
-    <color name="darkColorAccent">#D82A43</color>
+    <color name="darkColorAccent">#f50057</color>
 
     <!-- Splash Screen -->
     <color name="splashColor">#161616</color>
@@ -17,14 +17,14 @@
     <color name="toolbarIconDark">#FFFFFF</color>
 
     <color name="searchBar">#FFFFFF</color>
-    <color name="searchBarDark">#D82A43</color>
+    <color name="searchBarDark">#f50057</color>
     <color name="searchBarIcon">#202020</color>
     <color name="searchBarIconDark">#FFFFFF</color>
 
     <color name="tabIcon">#000000</color>
     <color name="tabIconDark">#FFFFFF</color>
-    <color name="tabIconSelected">#D82A43</color>
-    <color name="tabIconSelectedDark">#D82A43</color>
+    <color name="tabIconSelected">#f50057</color>
+    <color name="tabIconSelectedDark">#f50057</color>
 
     <!-- Navigation View -->
     <color name="navigationViewTitle">#FFFFFF</color>
@@ -32,8 +32,8 @@
 
     <color name="navigationViewText">#D9000000</color>
     <color name="navigationViewTextDark">#FFFFFF</color>
-    <color name="navigationViewTextSelected">#D82A43</color>
-    <color name="navigationViewTextSelectedDark">#D82A43</color>
+    <color name="navigationViewTextSelected">#f50057</color>
+    <color name="navigationViewTextSelectedDark">#f50057</color>
     <color name="navigationViewSelectedBackground">#f0f0f0</color>
     <color name="navigationViewSelectedBackgroundDark">#202020</color>
 

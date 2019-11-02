@@ -18,6 +18,7 @@ public class WallpaperBoard extends WallpaperBoardApplication {
         configuration.setWallpapersGridStyle(WallpaperBoardConfiguration.GridStyle.CARD);
        // configuration.setCropWallpaperEnabledByDefault(true);
         configuration.setDashboardThemingEnabled(true);
+        configuration.setLatestWallpapersDisplayMax(15);
 
         return configuration;
     }

@@ -91,7 +91,7 @@ public class WallpapersLoaderTask extends AsyncTask<Void, Void, Boolean> {
 
                     List<NameValuePair> values = WallpaperBoardApplication.getConfig()
                             .getJsonStructure().getPosts();
-                    if (values.size() > 0) {
+                    if (values.size() >= 0) {
                         DataOutputStream stream = new DataOutputStream(connection.getOutputStream());
                         stream.writeBytes(JsonHelper.getQuery(values));
                         stream.flush();
@@ -169,7 +169,7 @@ public class WallpapersLoaderTask extends AsyncTask<Void, Void, Boolean> {
                         List<Wallpaper> intersectionW = (List<Wallpaper>)
                                 ListHelper.intersect(wallpapers, newWallpapers);
 
-                        //C: Wallpapers in json that not available in A
+                        //C: Wallpapers in json that not available in A (Database)
                         //Considered as new wallpapers
                         List<Wallpaper> newlyAddedW = (List<Wallpaper>)
                                 ListHelper.difference(intersectionW, newWallpapers);

@@ -73,7 +73,7 @@ public class LatestAdapter extends RecyclerView.Adapter<LatestAdapter.ViewHolder
 
         mOptions = ImageConfig.getRawDefaultImageOptions();
         mOptions.resetViewBeforeLoading(true);
-        mOptions.cacheInMemory(true);
+        mOptions.cacheInMemory(false);
         mOptions.cacheOnDisk(true);
         mOptions.displayer(new FadeInBitmapDisplayer(700));
     }

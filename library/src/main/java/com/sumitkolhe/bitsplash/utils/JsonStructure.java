@@ -78,8 +78,8 @@ public class JsonStructure {
     public static class WallpaperStructure {
 
         private final String mArrayName;
-        //private String mName = "name";
-        //private String mAuthor = "author";
+        private String mName = "name";
+        private String mAuthor = "author";
         private String mUrl = "url";
         private String mThumbUrl = "thumbUrl";
         private String mCategory = "category";
@@ -91,15 +91,15 @@ public class JsonStructure {
             mArrayName = arrayName;
         }
 
-        //public WallpaperStructure name(@Nullable String name) {
-         //   mName = name;
-         //   return this;
-       // }
+        public WallpaperStructure name(@Nullable String name) {
+            mName = name;
+            return this;
+        }
 
-        //public WallpaperStructure author(@NonNull String author) {
-       //     mAuthor = author;
-        //    return this;
-        //}
+        public WallpaperStructure author(@NonNull String author) {
+           mAuthor = author;
+            return this;
+        }
 
         //Todo: make it public
         private WallpaperStructure authorUrl(@Nullable String authorUrl) {
@@ -133,15 +133,15 @@ public class JsonStructure {
             return mArrayName;
         }
 
-       // @Nullable
-       // public String getName() {
-       //     return mName;
-       // }
+        @Nullable
+        public String getName() {
+            return mName;
+        }
 
-        //@NonNull
-       // public String getAuthor() {
-         //   return mAuthor;
-      //  }
+        @NonNull
+        public String getAuthor() {
+           return mAuthor;
+        }
 
         @NonNull
         public String getUrl() {

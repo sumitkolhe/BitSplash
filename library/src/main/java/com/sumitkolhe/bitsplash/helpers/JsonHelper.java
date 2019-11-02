@@ -42,8 +42,8 @@ public class JsonHelper {
 
             Map map = (Map) object;
             return Wallpaper.Builder()
-                   // .name((String) map.get(wallpaperStructure.getName()))
-                  //  .author((String) map.get(wallpaperStructure.getAuthor()))
+                    .name((String) map.get(wallpaperStructure.getName()))
+                    .author((String) map.get(wallpaperStructure.getAuthor()))
                     .url((String) map.get(wallpaperStructure.getUrl()))
                     .thumbUrl(getThumbUrl(map))
                     .category((String) map.get(wallpaperStructure.getCategory()))

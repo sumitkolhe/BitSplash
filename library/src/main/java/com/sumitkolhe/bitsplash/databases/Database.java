@@ -33,7 +33,7 @@ import java.util.Locale;
 
 public class Database extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "wallpaper_board_database";
+    private static final String DATABASE_NAME = "bitsplash_database";
     private static final int DATABASE_VERSION = 5;
 
     private static final String TABLE_WALLPAPERS = "wallpapers";
@@ -817,6 +817,7 @@ public class Database extends SQLiteOpenHelper {
 
         Cursor cursor = mDatabase.get().mSQLiteDatabase.query(TABLE_WALLPAPERS, null, null, null, null, null, null, null);
         int rowCount = cursor.getCount();
+        LogUtil.e("it checked");
         cursor.close();
         return rowCount;
     }
