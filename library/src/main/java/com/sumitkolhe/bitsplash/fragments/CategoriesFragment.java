@@ -25,6 +25,7 @@ import com.sumitkolhe.bitsplash.items.Category;
 import com.danimahardhika.android.helpers.core.utils.LogUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -84,7 +85,6 @@ public class CategoriesFragment extends Fragment {
         ViewHelper.resetSpanCount(mRecyclerView, spanCount);
         resetRecyclerViewPadding();
         resetViewBottomPadding(mRecyclerView, true);
-
         mAdapter = new CategoriesAdapter(getActivity(), mCategories);
         mRecyclerView.setAdapter(mAdapter);
 

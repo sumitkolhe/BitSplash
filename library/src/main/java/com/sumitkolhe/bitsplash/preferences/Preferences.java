@@ -241,10 +241,8 @@ public class Preferences {
                 return 0;
             case SORT_OLDEST:
                 return 1;
-            case SORT_NAME:
-                return 2;
-            case SORT_RANDOM:
-                return 3;
+            /*case SORT_NAME:
+                return 2;*/
             default:
                 return 2;
         }
@@ -256,12 +254,10 @@ public class Preferences {
             return PopupItem.Type.SORT_LATEST;
         } else if (sort == 1) {
             return PopupItem.Type.SORT_OLDEST;
-        } else if (sort == 2) {
+        } /*else if (sort == 2) {
             return PopupItem.Type.SORT_NAME;
-        } else if (sort == 3) {
-            return PopupItem.Type.SORT_RANDOM;
-        }
-        return PopupItem.Type.SORT_NAME;
+        }*/
+        return PopupItem.Type.SORT_RANDOM;
     }
 
     public boolean isConnectedToNetwork() {

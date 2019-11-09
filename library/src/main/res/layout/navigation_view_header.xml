@@ -20,7 +20,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="bottom|start"
-        android:padding="8dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
         android:background="#00000000"
         >
 
@@ -34,6 +37,7 @@
             android:textColor="@color/navigationViewTitle"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginStart="4dp"
             android:layout_marginLeft="5dp"/>
 
         <TextView
@@ -41,7 +45,7 @@
             fontPath="fonts/Font-Bold.ttf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
+            android:paddingLeft="12dp"
             android:textColor="@color/navigationViewTitle"
             android:textSize="12sp" />
 

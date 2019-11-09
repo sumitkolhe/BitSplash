@@ -35,7 +35,7 @@
     <!-- CONFIG: Wallpapers -->
 
     <!-- Wallpaper json link -->
-    <string name="wallpaper_json">https://raw.githubusercontent.com/sumitkolhe/BitSplash-Walls/master/newjson.json</string>
+    <string name="wallpaper_json">https://raw.githubusercontent.com/sumitkolhe/BitSplash-Walls/master/new.json</string>
 
     <!-- Allow to download wallpaper
     * If disabled user only able to apply wallpaper from dashboard -->

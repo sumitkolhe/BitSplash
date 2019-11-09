@@ -303,6 +303,7 @@ public class CategoryWallpapersFragment extends Fragment {
             mAsyncTask = null;
             if (aBoolean) {
                 setHasOptionsMenu(true);
+
                 mAdapter = new WallpapersAdapter(getActivity(), wallpapers, false, true);
                 mRecyclerView.setAdapter(mAdapter);
             }

@@ -136,9 +136,9 @@ public class PopupItem {
                 .setType(Type.SORT_OLDEST)
                 .setIcon(R.drawable.ic_toolbar_sort_oldest));
 
-        items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_name))
+       /* items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_name))
                 .setType(Type.SORT_NAME)
-                .setIcon(R.drawable.ic_toolbar_sort_name));
+                .setIcon(R.drawable.ic_toolbar_sort_name));*/
 
         items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_random))
                 .setType(Type.SORT_RANDOM)

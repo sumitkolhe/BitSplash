@@ -13,7 +13,7 @@ public class WallpaperBoard extends WallpaperBoardApplication {
     @Override
     public WallpaperBoardConfiguration onInit() {
         WallpaperBoardConfiguration configuration = new WallpaperBoardConfiguration();
-        configuration.setNavigationIcon(WallpaperBoardConfiguration.NavigationIcon.STYLE_1);
+        configuration.setNavigationIcon(WallpaperBoardConfiguration.NavigationIcon.STYLE_4);
         configuration.setNavigationViewHeaderStyle(WallpaperBoardConfiguration.NavigationViewHeader.NORMAL);
         configuration.setWallpapersGridStyle(WallpaperBoardConfiguration.GridStyle.CARD);
        // configuration.setCropWallpaperEnabledByDefault(true);

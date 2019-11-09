@@ -239,19 +239,17 @@ public class CollectionFragment extends Fragment {
 
         mMenuSort.setImageDrawable(DrawableHelper.getTintedDrawable(
                 getActivity(), R.drawable.ic_toolbar_sort, color));
-        mMenuSort.setOnClickListener(view -> {
-            Popup.Builder(getActivity())
-                    .to(mMenuSort)
-                    .list(PopupItem.getSortItems(getActivity(), true))
-                    .callback((popup, position) -> {
-                        Preferences.get(getActivity())
-                                .setSortBy(popup.getItems().get(position).getType());
+        mMenuSort.setOnClickListener(view -> Popup.Builder(getActivity())
+                .to(mMenuSort)
+                .list(PopupItem.getSortItems(getActivity(), true))
+                .callback((popup, position) -> {
+                    Preferences.get(getActivity())
+                            .setSortBy(popup.getItems().get(position).getType());
 
-                        refreshWallpapers();
-                        popup.dismiss();
-                    })
-                    .show();
-        });
+                    refreshWallpapers();
+                    popup.dismiss();
+                })
+                .show());
     }
 
     public void refreshWallpapers() {

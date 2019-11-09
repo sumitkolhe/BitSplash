@@ -106,7 +106,7 @@ dependencies {
     //One Signal Notifications
     implementation 'com.onesignal:OneSignal:3.12.2'
     // App Updater
-    implementation 'com.github.javiersantos:AppUpdater:2.6.3'
+    implementation 'com.github.javiersantos:AppUpdater:2.7'
 }
 
 configurations.all {

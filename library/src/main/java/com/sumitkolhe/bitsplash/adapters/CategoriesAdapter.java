@@ -52,6 +52,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         mOptions.resetViewBeforeLoading(true);
         mOptions.cacheInMemory(true);
         mOptions.cacheOnDisk(true);
+        mOptions.showImageOnLoading(R.drawable.ic_empty);
         mOptions.displayer(new FadeInBitmapDisplayer(700));
     }
 

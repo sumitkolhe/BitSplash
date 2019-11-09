@@ -183,7 +183,7 @@ public class WallpapersLoaderTask extends AsyncTask<Void, Void, Boolean> {
                         //B: Wallpapers in database that not available in A
                         //Considered as different wallpaper
                         List<Wallpaper> differenceW = (List<Wallpaper>)
-                                ListHelper.difference(intersectionW, wallpapers);
+                                ListHelper.difference(intersectionW, newWallpapers);
 
                         List<Wallpaper> favorites = Database.get(mContext.get()).getFavoriteWallpapers();
 
