@@ -17,8 +17,8 @@ android {
         applicationId "com.sumitkolhe.bitsplash"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 20
-        versionName "0.1"
+        versionCode 30
+        versionName "0.2"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [
                 onesignal_app_id: '10042624-eb71-4221-97e1-60220a5255de',

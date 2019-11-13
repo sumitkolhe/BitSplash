@@ -16,9 +16,9 @@ public class WallpaperBoard extends WallpaperBoardApplication {
         configuration.setNavigationIcon(WallpaperBoardConfiguration.NavigationIcon.STYLE_4);
         configuration.setNavigationViewHeaderStyle(WallpaperBoardConfiguration.NavigationViewHeader.NORMAL);
         configuration.setWallpapersGridStyle(WallpaperBoardConfiguration.GridStyle.CARD);
-       // configuration.setCropWallpaperEnabledByDefault(true);
+        configuration.setCropWallpaperEnabledByDefault(true);
         configuration.setDashboardThemingEnabled(true);
-        configuration.setLatestWallpapersDisplayMax(15);
+        configuration.setLatestWallpapersDisplayMax(50);
 
         return configuration;
     }
