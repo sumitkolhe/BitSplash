@@ -4,7 +4,6 @@
     tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/donate"
     android:orientation="vertical">
 
     <ListView
