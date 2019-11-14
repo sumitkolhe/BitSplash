@@ -19,8 +19,8 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="-70dp"
         android:layout_gravity="center_horizontal"
         app:civ_border_color="?attr/card_background"

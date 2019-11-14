@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.danimahardhika.android.helpers.core.FileHelper;
 import com.danimahardhika.android.helpers.core.ViewHelper;
+import com.sumitkolhe.bitsplash.board.BuildConfig;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.adapters.SettingsAdapter;
@@ -43,6 +44,8 @@ public class SettingsFragment extends Fragment {
     RecyclerView mRecyclerView;
     @BindView(R2.id.toolbar)
     Toolbar mToolbar;
+    int versionCode = BuildConfig.VERSION_CODE;
+    String versionName = BuildConfig.VERSION_NAME;
 
     @Nullable
     @Override
@@ -165,6 +168,16 @@ public class SettingsFragment extends Fragment {
 
         settings.add(Setting.Builder(Setting.Type.RESET_TUTORIAL)
                 .subtitle(getActivity().getResources().getString(R.string.pref_others_reset_tutorial))
+                .build()
+        );
+
+        settings.add(Setting.Builder(Setting.Type.HEADER)
+                .icon(R.drawable.ic_toolbar_dashboard)
+                .title("BitSplash Version")
+                .build()
+        );
+        settings.add(Setting.Builder(Setting.Type.HEADER)
+                .subtitle("v"+versionName)
                 .build()
         );
 

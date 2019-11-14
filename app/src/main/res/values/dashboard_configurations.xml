@@ -64,7 +64,7 @@
     * just put image name here without the extension (ex: about_image.png -> about_image)
     * If you want to use solid color, you can put hex color code here
     * ex: <string name="about_image">#000000</string> -->
-    <string name="about_image">n</string>
+    <string name="about_image">abbout</string>
 
     <!-- About profile image
     * If you want to use image from url, just put the url here

@@ -129,6 +129,7 @@ public class Setting {
         WALLPAPER,
         PREVIEW_QUALITY,
         LANGUAGE,
-        RESET_TUTORIAL
+        RESET_TUTORIAL,
+        APP_VERSION;
     }
 }
