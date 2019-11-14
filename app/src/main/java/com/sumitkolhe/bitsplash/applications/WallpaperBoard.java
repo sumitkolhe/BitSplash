@@ -14,7 +14,7 @@ public class WallpaperBoard extends WallpaperBoardApplication {
     public WallpaperBoardConfiguration onInit() {
         WallpaperBoardConfiguration configuration = new WallpaperBoardConfiguration();
         configuration.setNavigationIcon(WallpaperBoardConfiguration.NavigationIcon.STYLE_4);
-        configuration.setNavigationViewHeaderStyle(WallpaperBoardConfiguration.NavigationViewHeader.NORMAL);
+        configuration.setNavigationViewHeaderStyle(WallpaperBoardConfiguration.NavigationViewHeader.MINI);
         configuration.setWallpapersGridStyle(WallpaperBoardConfiguration.GridStyle.CARD);
         configuration.setCropWallpaperEnabledByDefault(true);
         configuration.setDashboardThemingEnabled(true);

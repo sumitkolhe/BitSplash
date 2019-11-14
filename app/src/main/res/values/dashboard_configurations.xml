@@ -50,7 +50,7 @@
     * ex: navigation_view_header.png -> navigation_view_header
     * If you want to use solid color, you can put hex color code here
     * ex: <string name="navigation_view_header">#000000</string> -->
-    <string name="navigation_view_header">n</string>
+    <string name="navigation_view_header">ntitled</string>
 
     <!-- Navigation view header text
     * Leave empty if you don't want to show any text -->

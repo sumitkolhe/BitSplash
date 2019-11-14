@@ -118,7 +118,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 new WhatsNewItem("Minor UI changes", "Revamped the UI for better user experience", R.drawable.ic_design),
                 new WhatsNewItem("Fixed some bugs", "Fixed some annoying bugs", R.drawable.ic_bug));
 
-        whatsNew.setPresentationOption(PresentationOption.DEBUG);
         whatsNew.setTitleColor(Color.parseColor("#000000"));
         whatsNew.setTitleText("What's New");
         whatsNew.setButtonText("Got it!");

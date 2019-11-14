@@ -86,6 +86,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
         mOptions.resetViewBeforeLoading(true);
         mOptions.cacheInMemory(true);
         mOptions.cacheOnDisk(true);
+        mOptions.showImageOnLoading(R.drawable.ic_bolt);
         mOptions.displayer(new FadeInBitmapDisplayer(700));
     }
 

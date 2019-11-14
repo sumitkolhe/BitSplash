@@ -38,7 +38,8 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginStart="4dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/header_version"
@@ -47,7 +48,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="12dp"
             android:textColor="@color/navigationViewTitle"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 
