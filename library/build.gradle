@@ -107,6 +107,9 @@ dependencies {
     implementation 'com.onesignal:OneSignal:3.12.2'
     // App Updater
     implementation 'com.github.javiersantos:AppUpdater:2.7'
+
+    //Whats new
+    implementation 'io.github.tonnyl:whatsnew:0.1.2'
 }
 
 configurations.all {
