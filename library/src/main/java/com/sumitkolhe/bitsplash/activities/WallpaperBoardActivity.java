@@ -14,6 +14,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.github.javiersantos.materialstyleddialogs.enums.Style;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -278,7 +282,18 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             setFragment(getFragment(mPosition));
             return;
         }
-        super.onBackPressed();
+
+        new MaterialStyledDialog.Builder(this)
+                .setTitle("Exit BitSplash?")
+                .setPositiveText("Exit")
+                .setStyle(Style.HEADER_WITH_TITLE)
+                .setHeaderColor(R.color.darkColorPrimary)
+                .setNegativeText("Dismiss")
+
+                .setCancelable(false)
+                .onPositive((dialog, which) -> WallpaperBoardActivity.super.onBackPressed())
+                .show();
+
     }
 
     @Override

@@ -110,6 +110,9 @@ dependencies {
 
     //Whats new
     implementation 'io.github.tonnyl:whatsnew:0.1.2'
+
+    //Dialogs
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:2.1'
 }
 
 configurations.all {
