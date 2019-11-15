@@ -102,7 +102,7 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:gravity="center"
-                android:letterSpacing="0.15"
+                android:letterSpacing="0.1"
                 android:maxLines="1"
                 android:text="@string/app_name"
                 android:textSize="@dimen/text_content_title"
@@ -113,14 +113,14 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="12dp"
-                android:visibility="invisible"/>
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/sort"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="12dp"
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:theme="@style/RippleStyle"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
         </LinearLayout>

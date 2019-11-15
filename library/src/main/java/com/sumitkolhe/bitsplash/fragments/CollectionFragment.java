@@ -86,12 +86,13 @@ public class CollectionFragment extends Fragment {
                 tab.setIcon(mAdapter.getIcon(tab.getPosition(), true));
 
                 String tag = mAdapter.get(tab.getPosition()).getTag();
-                if (tag.equals(Extras.TAG_LATEST) || tag.equals(Extras.TAG_CATEGORIES)) {
-                    if (mMenuSort.getVisibility() == View.VISIBLE) {
-                        AnimationHelper.hide(mMenuSort).start();
+                if (tag.equals(Extras.TAG_CATEGORIES) || tag.equals(Extras.TAG_LATEST)) {
+                    if (mMenuSort.getVisibility() == View.VISIBLE  ) {
+                        //AnimationHelper.hide(mMenuSort).start();
+                        mMenuSort.setVisibility(View.INVISIBLE);
                     }
                 } else if (tag.equals(Extras.TAG_WALLPAPERS)) {
-                    if (mMenuSort.getVisibility() == View.GONE) {
+                    if (mMenuSort.getVisibility() == View.INVISIBLE) {
                         AnimationHelper.show(mMenuSort).start();
                     }
                 }
