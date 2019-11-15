@@ -23,7 +23,7 @@ public class SplashScreenConfiguration {
     public SplashScreenConfiguration(@NonNull Class<?> mainActivity) {
         mMainActivity = mainActivity;
         mBottomTextColor = -1;
-        mBottomTextFont = FontStyle.BOLD;
+        mBottomTextFont = FontStyle.LOGO;
         mBottomTextSize = FontSize.LARGE;
     }
 
@@ -64,7 +64,7 @@ public class SplashScreenConfiguration {
             case FontSize.SMALL:
                 return 14f;
             case FontSize.LARGE:
-                return 20f;
+                return 24f;
             case FontSize.REGULAR:
             default:
                 return 15f;
@@ -77,11 +77,13 @@ public class SplashScreenConfiguration {
                 return TypefaceHelper.getMedium(context);
             case FontStyle.BOLD:
                 return TypefaceHelper.getBold(context);
-            case FontStyle.LOGO:
-                return TypefaceHelper.getLogo(context);
             case FontStyle.REGULAR:
-            default:
                 return TypefaceHelper.getRegular(context);
+            case FontStyle.LOGO:
+
+            default:
+                return TypefaceHelper.getLogo(context);
+
         }
     }
 

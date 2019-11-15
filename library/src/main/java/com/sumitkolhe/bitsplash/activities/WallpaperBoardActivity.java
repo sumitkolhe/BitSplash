@@ -15,9 +15,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.github.javiersantos.materialstyleddialogs.enums.Style;
+
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -83,8 +81,7 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.tonnyl.whatsnew.WhatsNew;
-import io.github.tonnyl.whatsnew.item.WhatsNewItem;
-import io.github.tonnyl.whatsnew.util.PresentationOption;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
@@ -111,24 +108,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 R.style.AppThemeDark : R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_board);
-
-//Whats New
-
-        WhatsNew whatsNew = WhatsNew.newInstance(
-                new WhatsNewItem("Improved wallpaper loading speed", "Optimised wallpapers for faster loading", R.drawable.ic_bolt),
-                new WhatsNewItem("Added new wallpapers", "Added lots of new wallpapers", R.drawable.ic_wallpaper),
-                new WhatsNewItem("Added new categories", "Added some new categories", R.drawable.ic_category),
-                new WhatsNewItem("Minor UI changes", "Revamped the UI for better user experience", R.drawable.ic_design),
-                new WhatsNewItem("Fixed some bugs", "Fixed some annoying bugs", R.drawable.ic_bug));
-
-        whatsNew.setTitleColor(Color.parseColor("#000000"));
-        whatsNew.setTitleText("What's New");
-        whatsNew.setButtonText("Got it!");
-        whatsNew.setButtonBackground(Color.parseColor("#121212"));
-        whatsNew.setButtonTextColor(Color.parseColor("#ffffff"));
-        whatsNew.setItemTitleColor(Color.parseColor("#000000"));
-        whatsNew.setItemContentColor(Color.parseColor("#808080"));
-        whatsNew.presentAutomatically(WallpaperBoardActivity.this);
 
 
         ////////////////////////////////////////////////////////////////////

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-
+import java.util.Objects;
 
 
 public class TypefaceHelper {
@@ -63,12 +63,12 @@ public class TypefaceHelper {
     @Nullable
     public static Typeface getLogo(@NonNull Context context) {
         try {
-            if (!mTypefaces.containsKey(LOGO) || mTypefaces.get(LOGO).get() == null) {
+            if (!mTypefaces.containsKey(LOGO) || Objects.requireNonNull(mTypefaces.get(LOGO)).get() == null) {
                 Typeface typeface = Typeface.createFromAsset(
-                        context.getAssets(), "fonts/Font-Logo.ttf");
+                        context.getAssets(), "fonts/splash.ttf");
                 mTypefaces.put(LOGO, new WeakReference<>(typeface));
             }
-            return mTypefaces.get(LOGO).get();
+            return Objects.requireNonNull(mTypefaces.get(LOGO)).get();
         } catch (Exception e) {
             return null;
         }
