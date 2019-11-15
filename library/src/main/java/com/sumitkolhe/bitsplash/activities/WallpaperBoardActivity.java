@@ -59,6 +59,7 @@ import com.sumitkolhe.bitsplash.fragments.dialogs.InAppBillingFragment;
 import com.sumitkolhe.bitsplash.helpers.BackupHelper;
 import com.sumitkolhe.bitsplash.helpers.LicenseCallbackHelper;
 import com.sumitkolhe.bitsplash.helpers.LocaleHelper;
+import com.sumitkolhe.bitsplash.helpers.TypefaceHelper;
 import com.sumitkolhe.bitsplash.items.InAppBilling;
 import com.sumitkolhe.bitsplash.preferences.Preferences;
 import com.sumitkolhe.bitsplash.services.WallpaperBoardService;
@@ -71,9 +72,7 @@ import com.sumitkolhe.bitsplash.utils.InAppBillingProcessor;
 import com.sumitkolhe.bitsplash.utils.listeners.InAppBillingListener;
 import com.sumitkolhe.bitsplash.utils.listeners.NavigationListener;
 import com.sumitkolhe.bitsplash.utils.views.HeaderView;
-import com.github.javiersantos.appupdater.AppUpdater;
-import com.github.javiersantos.appupdater.enums.Display;
-import com.github.javiersantos.appupdater.enums.UpdateFrom;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
@@ -215,9 +214,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
 
 
 
-
-
-
     }
 
     @Override
@@ -283,16 +279,15 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             return;
         }
 
-        new MaterialStyledDialog.Builder(this)
-                .setTitle("Exit BitSplash?")
-                .setPositiveText("Exit")
-                .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderColor(R.color.darkColorPrimary)
-                .setNegativeText("Dismiss")
-
-                .setCancelable(false)
-                .onPositive((dialog, which) -> WallpaperBoardActivity.super.onBackPressed())
-                .show();
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(this);
+        builder.typeface(TypefaceHelper.getBold(this), TypefaceHelper.getMedium(this));
+        builder.title("Exit BitSplash?");
+        builder.positiveText("Exit");
+        builder.negativeText("Dismiss");
+        builder.cancelable(false);
+        builder.onPositive((materialDialog, dialogAction) -> WallpaperBoardActivity.super.onBackPressed());
+        MaterialDialog dialog = builder.build();
+        dialog.show();
 
     }
 
