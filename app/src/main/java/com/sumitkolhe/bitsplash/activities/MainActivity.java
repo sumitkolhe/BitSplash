@@ -1,5 +1,7 @@
 package com.sumitkolhe.bitsplash.activities;
 
+import android.content.Intent;
+
 import androidx.annotation.NonNull;
 
 import com.sumitkolhe.bitsplash.activities.configurations.ActivityConfiguration;
@@ -18,4 +20,6 @@ public class MainActivity extends WallpaperBoardActivity {
                 .setDonationProductsId(License.getDonationProductsId());
 
     }
+
+
 }

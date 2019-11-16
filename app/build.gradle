@@ -21,7 +21,7 @@ android {
         versionName "0.2"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [
-                onesignal_app_id: '10042624-eb71-4221-97e1-60220a5255de',
+                onesignal_app_id               : '10042624-eb71-4221-97e1-60220a5255de',
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE']
 
@@ -45,7 +45,6 @@ configurations {
 }
 
 
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // Library
@@ -53,5 +52,5 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.apps.muzei:muzei-api:3.2.0'
-
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
