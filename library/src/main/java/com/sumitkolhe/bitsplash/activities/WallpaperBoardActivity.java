@@ -42,6 +42,8 @@ import com.danimahardhika.android.helpers.core.WindowHelper;
 import com.danimahardhika.android.helpers.license.LicenseHelper;
 import com.danimahardhika.android.helpers.permission.PermissionCode;
 import com.onesignal.OneSignal;
+import com.sumitkolhe.android.inapp.update.Constants;
+import com.sumitkolhe.android.inapp.update.InAppUpdateManager;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.activities.callbacks.ActivityCallback;
@@ -80,13 +82,12 @@ import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.github.tonnyl.whatsnew.WhatsNew;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public abstract class WallpaperBoardActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback,
-        InAppBillingListener, NavigationListener, ActivityCallback {
+        InAppBillingListener, NavigationListener, ActivityCallback, InAppUpdateManager.InAppUpdateHandler {
 
     @BindView(R2.id.navigation_view)
     NavigationView mNavigationView;
@@ -102,6 +103,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
 
     private ActivityConfiguration mConfig;
 
+    private static final int REQ_CODE_VERSION_UPDATE = 30;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.setTheme(Preferences.get(this).isDarkTheme() ?
@@ -190,6 +192,17 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
+
+        //APP updater
+
+        InAppUpdateManager inAppUpdateManager = InAppUpdateManager.Builder(this, REQ_CODE_VERSION_UPDATE)
+                .resumeUpdates(true) // Resume the update, if the update was stalled. Default is true
+                .mode(Constants.UpdateMode.FLEXIBLE)
+                .snackBarMessage("An update has just been downloaded.")
+                .snackBarAction("RESTART")
+                .handler(this);
+
+        inAppUpdateManager.checkForAppUpdate();
 
 
 

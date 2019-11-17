@@ -64,7 +64,7 @@ public class SplashScreenConfiguration {
             case FontSize.SMALL:
                 return 14f;
             case FontSize.LARGE:
-                return 24f;
+                return 22f;
             case FontSize.REGULAR:
             default:
                 return 15f;

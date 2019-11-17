@@ -128,6 +128,11 @@ public class PopupItem {
 
     public static List<PopupItem> getSortItems(@NonNull Context context, boolean selection) {
         List<PopupItem> items = new ArrayList<>();
+
+        items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_random))
+                .setType(Type.SORT_RANDOM)
+                .setIcon(R.drawable.ic_toolbar_sort_random));
+
         items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_latest))
                 .setType(Type.SORT_LATEST)
                 .setIcon(R.drawable.ic_toolbar_sort_latest));
@@ -140,9 +145,7 @@ public class PopupItem {
                 .setType(Type.SORT_NAME)
                 .setIcon(R.drawable.ic_toolbar_sort_name));*/
 
-        items.add(new PopupItem(context.getResources().getString(R.string.menu_sort_random))
-                .setType(Type.SORT_RANDOM)
-                .setIcon(R.drawable.ic_toolbar_sort_random));
+
 
         if (selection) {
             Type type = Preferences.get(context).getSortBy();

@@ -109,6 +109,9 @@ dependencies {
     //Whats new
     implementation 'io.github.tonnyl:whatsnew:0.1.2'
 
+    //updater
+    implementation 'com.github.sumitkolhe:inAppUpdater:20c369ef4f'
+
 }
 
 configurations.all {
@@ -121,4 +124,3 @@ configurations.all {
         }
     }
 }
-

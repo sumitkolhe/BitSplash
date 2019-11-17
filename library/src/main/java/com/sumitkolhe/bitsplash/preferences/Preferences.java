@@ -238,21 +238,21 @@ public class Preferences {
     public int getSortByOrder(PopupItem.Type type) {
         switch (type) {
             case SORT_LATEST:
-                return 0;
-            case SORT_OLDEST:
                 return 1;
+            case SORT_OLDEST:
+                return 2;
             /*case SORT_NAME:
                 return 2;*/
             default:
-                return 2;
+                return 0;
         }
     }
 
     public PopupItem.Type getSortBy(){
-        int sort = getSharedPreferences().getInt(KEY_SORT_BY, 2);
-        if (sort == 0) {
+        int sort = getSharedPreferences().getInt(KEY_SORT_BY, 0);
+        if (sort == 1) {
             return PopupItem.Type.SORT_LATEST;
-        } else if (sort == 1) {
+        } else if (sort == 2) {
             return PopupItem.Type.SORT_OLDEST;
         } /*else if (sort == 2) {
             return PopupItem.Type.SORT_NAME;

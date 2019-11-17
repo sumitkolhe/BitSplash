@@ -203,7 +203,8 @@ public class CategoryWallpapersFragment extends Fragment {
 
             Popup.Builder(getActivity())
                     .to(menuSort)
-                    .list(PopupItem.getSortItems(getActivity(), false))
+
+                    .list(PopupItem.getSortItems(getActivity(), true))
                     .callback((popup, position) -> {
                         popup.dismiss();
                         mSearchView.clearFocus();
@@ -211,12 +212,15 @@ public class CategoryWallpapersFragment extends Fragment {
                         if (mAsyncTask != null) return;
                         mAsyncTask = new WallpapersSortLoader(popup.getItems().get(position).getType())
                                 .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
                     })
+
                     .show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
