@@ -34,7 +34,8 @@
             android:theme="@style/WallpaperTheme"
             android:exported="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:resizeableActivity="false"/>
+            android:resizeableActivity="false"
+            tools:targetApi="n" />
 
         <service android:name="com.sumitkolhe.bitsplash.services.WallpaperBoardService"
             android:stopWithTask="false"/>
