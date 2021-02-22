@@ -15,7 +15,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0'
         classpath 'me.tatarka:gradle-retrolambda:3.7.0'
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
     }
