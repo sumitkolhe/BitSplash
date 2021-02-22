@@ -1,3 +1,4 @@
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
@@ -20,7 +21,6 @@ buildscript {
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
     }
 }
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
 android {
     compileSdkVersion rootProject.ext.CompileSdk
