@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -26,6 +27,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +35,7 @@ import android.webkit.URLUtil;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.danimahardhika.android.helpers.core.ColorHelper;
 import com.danimahardhika.android.helpers.core.DrawableHelper;
@@ -42,8 +45,6 @@ import com.danimahardhika.android.helpers.core.WindowHelper;
 import com.danimahardhika.android.helpers.license.LicenseHelper;
 import com.danimahardhika.android.helpers.permission.PermissionCode;
 import com.onesignal.OneSignal;
-import com.sumitkolhe.android.inapp.update.Constants;
-import com.sumitkolhe.android.inapp.update.InAppUpdateManager;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.activities.callbacks.ActivityCallback;
@@ -87,7 +88,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public abstract class WallpaperBoardActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback,
-        InAppBillingListener, NavigationListener, ActivityCallback, InAppUpdateManager.InAppUpdateHandler {
+        InAppBillingListener, NavigationListener, ActivityCallback {
 
     @BindView(R2.id.navigation_view)
     NavigationView mNavigationView;
@@ -104,6 +105,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
     private ActivityConfiguration mConfig;
 
     private static final int REQ_CODE_VERSION_UPDATE = 30;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.setTheme(Preferences.get(this).isDarkTheme() ?
@@ -185,26 +187,12 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
             finish();
         }
 
-        ////////////////////////
         //ONE SIGNAL IMPLEMENTATION
 
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
-
-        //APP updater
-
-        InAppUpdateManager inAppUpdateManager = InAppUpdateManager.Builder(this, REQ_CODE_VERSION_UPDATE)
-                .resumeUpdates(true) // Resume the update, if the update was stalled. Default is true
-                .mode(Constants.UpdateMode.FLEXIBLE)
-                .snackBarMessage("An update has just been downloaded.")
-                .snackBarAction("RESTART")
-                .handler(this);
-
-        inAppUpdateManager.checkForAppUpdate();
-
-
 
     }
 
@@ -400,13 +388,13 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                         getResources().getString(R.string.app_name)));
                 intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_app_body,
                         getResources().getString(R.string.app_name),
-                        "https://play.google.com/store/apps/details?id=" +getPackageName()));
+                        "https://play.google.com/store/apps/details?id=" + getPackageName()));
                 startActivity(Intent.createChooser(intent, getResources().getString(R.string.email_client)));
                 return false;
 
             } else if (id == R.id.navigation_view_rate) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                        "https://play.google.com/store/apps/details?id=" +getPackageName()));
+                        "https://play.google.com/store/apps/details?id=" + getPackageName()));
                 intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                 startActivity(intent);
                 return false;
@@ -448,7 +436,8 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                 String versionText = "v" + getPackageManager()
                         .getPackageInfo(getPackageName(), 0).versionName;
                 version.setText(versionText);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         if (ColorHelper.isValidColor(imageUrl)) {
