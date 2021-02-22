@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BitSplash.iml" filepath="$PROJECT_DIR$/.idea/modules/BitSplash.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitSplash.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitSplash.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/BitSplash.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/BitSplash.library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Bitsplash.iml" filepath="$PROJECT_DIR$/.idea/modules/Bitsplash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Bitsplash.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Bitsplash.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/Bitsplash.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/Bitsplash.library.iml" />
     </modules>
   </component>
 </project>
