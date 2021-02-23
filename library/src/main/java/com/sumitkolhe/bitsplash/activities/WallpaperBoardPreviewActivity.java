@@ -1,5 +1,6 @@
 package com.sumitkolhe.bitsplash.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -72,20 +73,22 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
 public class WallpaperBoardPreviewActivity extends AppCompatActivity implements View.OnClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, SlidingUpPanelLayout.PanelSlideListener,
         WallpaperPropertiesLoaderTask.Callback, WallpaperPaletteLoaderTask.Callback, View.OnLongClickListener {
 
+    @SuppressLint("NonConstantResourceId")
     @BindView(R2.id.wallpaper)
     ImageView mImageView;
     @BindView(R2.id.progress)
@@ -125,17 +128,17 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
 
     private boolean mIsBottomPanelDragged = false;
 
-    private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
     private int totalCount;
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.setTheme(Preferences.get(this).isDarkTheme() ?
                 R.style.WallpaperThemeDark : R.style.WallpaperTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper_preview);
-        prefs = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
         editor = prefs.edit();
         totalCount = prefs.getInt("counter", 0);
 
@@ -258,7 +261,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         ViewHelper.resetSpanCount(mRecyclerView, getResources().getInteger(
                 R.integer.wallpaper_details_column_count));
@@ -275,7 +278,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     @Override
     protected void attachBaseContext(Context newBase) {
         LocaleHelper.setLocale(newBase);
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
@@ -301,7 +304,7 @@ public class WallpaperBoardPreviewActivity extends AppCompatActivity implements 
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
         if (mWallpaper != null) {
             outState.putString(Extras.EXTRA_URL, mWallpaper.getUrl());
         }

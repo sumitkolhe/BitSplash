@@ -2,9 +2,6 @@ package com.sumitkolhe.bitsplash.applications;
 
 import androidx.annotation.NonNull;
 
-import com.sumitkolhe.bitsplash.board.sample.R;
-import com.sumitkolhe.bitsplash.utils.JsonStructure;
-
 public class WallpaperBoard extends WallpaperBoardApplication {
 
     //to enable author name and wallpaper name remove comments from jsonstructure.java and jsonhelper.java

@@ -31,7 +31,7 @@ import com.sumitkolhe.bitsplash.utils.listeners.RefreshDurationListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 import static com.sumitkolhe.bitsplash.helpers.ViewHelper.resetViewBottomPadding;
 
@@ -102,7 +102,7 @@ public abstract class WallpaperBoardMuzeiActivity extends AppCompatActivity impl
     @Override
     protected void attachBaseContext(Context newBase) {
         LocaleHelper.setLocale(newBase);
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

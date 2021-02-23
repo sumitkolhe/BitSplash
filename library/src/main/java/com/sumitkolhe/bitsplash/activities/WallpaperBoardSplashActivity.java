@@ -20,10 +20,8 @@ import com.sumitkolhe.bitsplash.activities.configurations.SplashScreenConfigurat
 import com.danimahardhika.android.helpers.core.utils.LogUtil;
 
 import java.lang.ref.WeakReference;
-import java.util.concurrent.Executor;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public abstract class WallpaperBoardSplashActivity extends AppCompatActivity implements SplashScreenCallback {
 
@@ -40,12 +38,12 @@ public abstract class WallpaperBoardSplashActivity extends AppCompatActivity imp
 
         mAsyncTask = SplashScreenLoader.with(this)
                 .mainActivity(mConfig.getMainActivity())
-                .start(AsyncTask.THREAD_POOL_EXECUTOR);
+                .start();
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
@@ -76,7 +74,7 @@ public abstract class WallpaperBoardSplashActivity extends AppCompatActivity imp
 
     private static class SplashScreenLoader extends AsyncTask<Void, Void, Boolean> {
 
-        private WeakReference<Context> context;
+        private final WeakReference<Context> context;
         private Class<?> mainActivity;
 
         private SplashScreenLoader(@NonNull Context context) {
@@ -88,8 +86,8 @@ public abstract class WallpaperBoardSplashActivity extends AppCompatActivity imp
             return this;
         }
 
-        private AsyncTask start(@NonNull Executor executor) {
-            return executeOnExecutor(executor);
+        private AsyncTask start() {
+            return executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 
         private static SplashScreenLoader with(@NonNull Context context) {

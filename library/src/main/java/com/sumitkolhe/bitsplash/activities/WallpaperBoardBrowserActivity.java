@@ -4,24 +4,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.danimahardhika.android.helpers.core.ColorHelper;
 import com.danimahardhika.android.helpers.core.SoftKeyboardHelper;
 import com.danimahardhika.android.helpers.core.WindowHelper;
 import com.sumitkolhe.bitsplash.board.R;
 import com.sumitkolhe.bitsplash.fragments.CategoryWallpapersFragment;
-import com.sumitkolhe.bitsplash.fragments.WallpaperSearchFragment;
 import com.sumitkolhe.bitsplash.helpers.LocaleHelper;
 import com.sumitkolhe.bitsplash.preferences.Preferences;
 import com.sumitkolhe.bitsplash.utils.Extras;
 
+import org.jetbrains.annotations.NotNull;
+
 import butterknife.ButterKnife;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
 public class WallpaperBoardBrowserActivity extends AppCompatActivity {
@@ -31,7 +33,11 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
     private int mFragmentId;
     private int mCategoryCount;
     private String mCategoryName;
-    private String mFragmentTag;
+    private final String mFragmentTag;
+
+    public WallpaperBoardBrowserActivity(String mFragmentTag) {
+        this.mFragmentTag = mFragmentTag;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,11 +77,11 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         LocaleHelper.setLocale(newBase);
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
         if (mCategoryName != null) {
             outState.putString(Extras.EXTRA_CATEGORY, mCategoryName);
         }
@@ -101,7 +107,7 @@ public class WallpaperBoardBrowserActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         WindowHelper.resetNavigationBarTranslucent(this, WindowHelper.NavigationBarTranslucent.PORTRAIT_ONLY);
         LocaleHelper.setLocale(this);

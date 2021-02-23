@@ -17,7 +17,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.calligraphy3.CalligraphyUtils;
+import io.github.inflationx.viewpump.ViewPump;
 
 
 public abstract class WallpaperBoardApplication extends Application implements ApplicationCallback {
@@ -37,10 +40,13 @@ public abstract class WallpaperBoardApplication extends Application implements A
         if (!ImageLoader.getInstance().isInited())
             ImageLoader.getInstance().init(ImageConfig.getImageLoaderConfiguration(this));
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Font-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build());
+        ViewPump.init(ViewPump.builder()
+                .addInterceptor(new CalligraphyInterceptor(
+                        new CalligraphyConfig.Builder()
+                                .setDefaultFontPath("fonts/Font-Regular.ttf")
+                                .setFontAttrId(R.attr.fontPath)
+                                .build())).build());
+
 
         //Enable logging
         LogUtil.setLoggingTag(getString(R.string.app_name));

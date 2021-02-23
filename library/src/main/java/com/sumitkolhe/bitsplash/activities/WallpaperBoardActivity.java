@@ -1,5 +1,6 @@
 package com.sumitkolhe.bitsplash.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,30 +12,24 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.danimahardhika.android.helpers.core.ColorHelper;
@@ -44,13 +39,17 @@ import com.danimahardhika.android.helpers.core.ViewHelper;
 import com.danimahardhika.android.helpers.core.WindowHelper;
 import com.danimahardhika.android.helpers.license.LicenseHelper;
 import com.danimahardhika.android.helpers.permission.PermissionCode;
+import com.google.android.material.navigation.NavigationView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageSize;
+import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
 import com.onesignal.OneSignal;
-import com.sumitkolhe.bitsplash.board.R;
-import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.activities.callbacks.ActivityCallback;
 import com.sumitkolhe.bitsplash.activities.configurations.ActivityConfiguration;
 import com.sumitkolhe.bitsplash.applications.WallpaperBoardApplication;
 import com.sumitkolhe.bitsplash.applications.WallpaperBoardConfiguration;
+import com.sumitkolhe.bitsplash.board.R;
+import com.sumitkolhe.bitsplash.board.R2;
 import com.sumitkolhe.bitsplash.databases.Database;
 import com.sumitkolhe.bitsplash.fragments.AboutFragment;
 import com.sumitkolhe.bitsplash.fragments.CollectionFragment;
@@ -74,24 +73,22 @@ import com.sumitkolhe.bitsplash.utils.listeners.InAppBillingListener;
 import com.sumitkolhe.bitsplash.utils.listeners.NavigationListener;
 import com.sumitkolhe.bitsplash.utils.views.HeaderView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageSize;
-import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
-
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
 public abstract class WallpaperBoardActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback,
         InAppBillingListener, NavigationListener, ActivityCallback {
 
+    @SuppressLint("NonConstantResourceId")
     @BindView(R2.id.navigation_view)
     NavigationView mNavigationView;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R2.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
@@ -103,8 +100,6 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
     private int mPosition, mLastPosition;
 
     private ActivityConfiguration mConfig;
-
-    private static final int REQ_CODE_VERSION_UPDATE = 30;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -159,7 +154,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
                         if (!success) return;
 
                         Fragment fragment = mFragManager.findFragmentByTag(Extras.TAG_COLLECTION);
-                        if (fragment != null && fragment instanceof CollectionFragment) {
+                        if (fragment instanceof CollectionFragment) {
                             ((CollectionFragment) fragment).refreshCategories();
                         }
                     })
@@ -199,7 +194,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
     @Override
     protected void attachBaseContext(Context newBase) {
         LocaleHelper.setLocale(newBase);
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
@@ -215,7 +210,7 @@ public abstract class WallpaperBoardActivity extends AppCompatActivity implement
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         resetNavigationView(newConfig.orientation);
         WindowHelper.resetNavigationBarTranslucent(this,

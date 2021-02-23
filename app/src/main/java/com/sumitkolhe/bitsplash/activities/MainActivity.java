@@ -1,11 +1,8 @@
 package com.sumitkolhe.bitsplash.activities;
 
-import android.content.Intent;
-
 import androidx.annotation.NonNull;
 
 import com.sumitkolhe.bitsplash.activities.configurations.ActivityConfiguration;
-import com.sumitkolhe.bitsplash.board.sample.R;
 import com.sumitkolhe.bitsplash.licenses.License;
 
 public class MainActivity extends WallpaperBoardActivity {
